@@ -1,6 +1,5 @@
 package main.java.com.sjpark.board.menu;
 
-import main.java.com.sjpark.board.post.Post;
 import main.java.com.sjpark.board.post.PostService;
 
 public class CreatePostCommand implements Command {
@@ -10,6 +9,7 @@ public class CreatePostCommand implements Command {
         this.postService = postService;
     }
 
+    @Override
     public void execute() {
         postService.createPost();
     }

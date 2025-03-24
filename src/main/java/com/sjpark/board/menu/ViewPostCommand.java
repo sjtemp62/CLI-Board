@@ -9,6 +9,7 @@ public class ViewPostCommand implements Command {
         this.postService = postService;
     }
 
+    @Override
     public void execute() {
         postService.viewPosts();
     }

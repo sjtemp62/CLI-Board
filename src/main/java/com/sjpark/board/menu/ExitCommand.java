@@ -1,7 +1,9 @@
 package main.java.com.sjpark.board.menu;
 
 public class ExitCommand implements Command {
+    @Override
     public void execute() {
-        System.out.println("프로그램 종료 기능입니다. (나중에 구현)");
+        System.out.println("👋 프로그램을 종료합니다.");
+        System.exit(0);
     }
 }
