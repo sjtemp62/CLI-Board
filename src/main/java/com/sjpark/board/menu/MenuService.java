@@ -1,15 +1,19 @@
 package main.java.com.sjpark.board.menu;
 
+import main.java.com.sjpark.board.post.PostService;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class MenuService {
     private Map<Integer, Command> commands = new HashMap<>();
+
     public MenuService() {
-        PostService postService =
-        commands.put(1, new CreatePostCommand());
-        commands.put(2, new ViewPostCommand());
+        PostService postService = new PostService();
+
+        commands.put(1, new CreatePostCommand(postService));
+        commands.put(2, new ViewPostCommand(postService));
         commands.put(3, new ExitCommand());
     }
 

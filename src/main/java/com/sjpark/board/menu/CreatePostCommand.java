@@ -1,16 +1,16 @@
 package main.java.com.sjpark.board.menu;
 
 import main.java.com.sjpark.board.post.Post;
-import main.java.com.sjpark.board.post.PostRepository;
+import main.java.com.sjpark.board.post.PostService;
 
 public class CreatePostCommand implements Command {
-    private final PostRepository postRepository;
+    private final PostService postService;
 
-    public CreatePostCommand(PostRepository postRepository) {
-        this.postRepository = postRepository;
+    public CreatePostCommand(PostService postService) {
+        this.postService = postService;
     }
 
-    public void execute(Post post) {
-        postRepository.save(post);
+    public void execute() {
+        postService.createPost();
     }
 }

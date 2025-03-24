@@ -1,7 +1,15 @@
 package main.java.com.sjpark.board.menu;
 
+import main.java.com.sjpark.board.post.PostService;
+
 public class ViewPostCommand implements Command {
+    private final PostService postService;
+
+    public ViewPostCommand(PostService postService) {
+        this.postService = postService;
+    }
+
     public void execute() {
-        System.out.println("게시글 조회 기능입니다. (나중에 구현)");
+        postService.viewPosts();
     }
 }
