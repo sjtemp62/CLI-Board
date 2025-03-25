@@ -37,4 +37,22 @@ public class PostService {
             post.printSummary(); // 예: 1. 게시글 제목
         }
     }
+
+    // Post Deleting (based by postID)
+    public void deletePost() {
+        try {
+            System.out.print("Please Enter Post ID: ");
+            int postId = Integer.parseInt(scanner.nextLine());
+
+            boolean success = postRepository.deletePost(postId);
+            if (success) {
+                System.out.println("Post has been successfully deleted.");
+            } else {
+                System.out.println("Post could not be deleted.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number");
+        }
+    }
+
 }
