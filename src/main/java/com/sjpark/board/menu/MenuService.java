@@ -15,7 +15,8 @@ public class MenuService {
         commands.put(1, new CreatePostCommand(postService));
         commands.put(2, new ViewPostCommand(postService));
         commands.put(3, new DeleteCommand(postService));
-        commands.put(4, new ExitCommand());
+        commands.put(4, new PostReadCommand(postService));
+        commands.put(5, new ExitCommand());
     }
 
     public void start() {
@@ -25,7 +26,8 @@ public class MenuService {
             System.out.println("1. 게시글 작성");
             System.out.println("2. 게시글 목록 조회");
             System.out.println("3. 게시물 삭제");
-            System.out.println("4. 종료");
+            System.out.println("4. 게시물 내용 조회");
+            System.out.println("5. 종료");
             System.out.print("입력: ");
 
             int input = sc.nextInt();
