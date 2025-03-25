@@ -1,6 +1,7 @@
 package main.java.com.sjpark.board.post;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class PostService {
@@ -38,7 +39,7 @@ public class PostService {
         }
     }
 
-    // Post Deleting (based by postID)
+    // Post Delete (based by postID)
     public void deletePost() {
         try {
             System.out.print("Please Enter Post ID: ");
@@ -49,6 +50,22 @@ public class PostService {
                 System.out.println("Post has been successfully deleted.");
             } else {
                 System.out.println("Post could not be deleted.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number");
+        }
+    }
+
+    // Post Read (based by PostID)
+    public void readPosts() {
+        try {
+            int postId = Integer.parseInt(scanner.nextLine());
+            Optional<Post> result = postRepository.findById(postId);
+            if (result.isPresent()) {
+                Post post = result.get();
+                post.printDetail();
+            } else {
+                System.out.println("Post could not be found.");
             }
         } catch (NumberFormatException e) {
             System.out.println("Invalid input. Please enter a number");
