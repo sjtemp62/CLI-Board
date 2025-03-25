@@ -5,12 +5,17 @@ import java.util.List;
 
 public class PostRepository {
     private final List<Post> posts = new ArrayList<>();
-    
+
     public void save(Post post) {
         posts.add(post);
     }
 
     public List<Post> findAll() {
         return new ArrayList<>(posts);
+    }
+
+    // posts Delete Method
+    public boolean deletePost(int id) {
+        return posts.removeIf(post -> post.getId() == id);
     }
 }
